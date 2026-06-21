@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 简明访问指南</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #fafbfc;
+      color: #1e2a3a;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
+      line-height: 1.7;
+      padding: 0 1.25rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .page-wrapper {
+      max-width: 680px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 5rem 0 4rem;
+    }
+
+    /* 标题层级 —— 极简留白，清晰对比 */
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 350;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+      margin-bottom: 1.75rem;
+      color: #0b182b;
+    }
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+      color: #1a2c44;
+      border-bottom: 1px solid #e6eaef;
+      padding-bottom: 0.5rem;
+    }
+    h3 {
+      font-size: 1.125rem;
+      font-weight: 500;
+      margin-top: 1.75rem;
+      margin-bottom: 0.3rem;
+      color: #1f2f48;
+    }
+
+    /* 正文与段落 */
+    p {
+      margin-bottom: 1.25rem;
+      font-size: 1rem;
+      color: #2b3a50;
+    }
+
+    a {
+      color: #2866cb;
+      text-decoration: none;
+      border-bottom: 1px solid #ccd9ee;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    a:hover, a:focus {
+      color: #1b4fa0;
+      border-bottom-color: #1b4fa0;
+    }
+
+    /* 特点卡片列表 */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .feature-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.5rem 1.75rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.03);
+      transition: box-shadow 0.2s;
+      border: 1px solid #edf1f7;
+    }
+    .feature-card:hover {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+    }
+    .feature-card strong {
+      display: inline-block;
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: #14273e;
+      margin-bottom: 0.25rem;
+    }
+    .feature-card p {
+      margin-bottom: 0;
+      font-size: 0.95rem;
+      color: #2f405b;
+    }
+
+    /* 场景提示块 */
+    .note-block {
+      background: #f2f5fa;
+      border-left: 4px solid #2866cb;
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 12px 12px 0;
+      margin: 2rem 0;
+    }
+    .note-block p {
+      margin-bottom: 0.4rem;
+    }
+    .note-block p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* FAQ 摘要卡片（紧凑） */
+    .faq-summary {
+      margin-top: 2.5rem;
+      border-top: 1px solid #e6eaef;
+      padding-top: 1.75rem;
+    }
+    .faq-summary details {
+      margin-bottom: 0.7rem;
+      padding: 0.35rem 0.5rem;
+      border-radius: 6px;
+      transition: background 0.1s;
+    }
+    .faq-summary details[open] {
+      background: #f7f9fc;
+    }
+    .faq-summary summary {
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: #1e2d44;
+      padding: 0.3rem 0;
+    }
+    .faq-summary summary::-webkit-details-marker {
+      color: #6f7e98;
+    }
+    .faq-summary details p {
+      margin: 0.5rem 0 0.2rem 0.6rem;
+      font-size: 0.9rem;
+      color: #3f506b;
+    }
+
+    /* 温和结尾分隔 */
+    .closing-note {
+      margin-top: 3.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e6eaef;
+      font-size: 0.95rem;
+      color: #4e607c;
+    }
+
+    /* 响应式微调 */
+    @media (max-width: 540px) {
+      .page-wrapper {
+        padding: 3rem 0 3rem;
+      }
+      h1 {
+        font-size: 1.9rem;
+      }
+      h2 {
+        font-size: 1.3rem;
+      }
+      .feature-card {
+        padding: 1.2rem 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- 开场短句 -->
+    <h1>从一处入口<br>到整个游戏宇宙</h1>
+    <p>关于 <a href="https://indexportal-aiyouxi.com.cn">爱游戏</a>，你不必记住复杂的域名或逐个检索。这个索引页只为一件事存在：将你平稳地引导至它真正想去的地方。下面是一份简明访问指南，以及一些你也许会在意的小细节。</p>
+
+    <!-- 承接段落：阐明角色 -->
+    <p>它不承担社区或论坛的功能，也不收集你的任何浏览痕迹。整个页面的职责极其单一——提供一个干净、无干扰的出发点。当你需要快速抵达目标站点，却又不希望经过搜索引擎的冗余步骤时，它恰好能填补那几秒钟的间隙。</p>
+
+    <!-- 特点列表（卡片） -->
+    <h2>索引页的四个特征</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <strong>直连路径</strong>
+        <p>页面内仅保留唯一指向目标资源的链接，没有排行榜、弹窗或无关推荐。从加载到跳转，心智负担趋近于零。</p>
+      </div>
+      <div class="feature-card">
+        <strong>零追踪结构</strong>
+        <p>无外部脚本、无追踪像素、无 Cookie 横幅。页面完全静态，只做一件事：承载指向 <a href="https://indexportal-aiyouxi.com.cn">爱游戏</a> 的入口。</p>
+      </div>
+      <div class="feature-card">
+        <strong>极低加载门槛</strong>
+        <p>体积控制在数 KB，无图片、无字体文件。即便在弱网环境或旧设备上，也能在 1 秒内完成渲染。</p>
+      </div>
+      <div class="feature-card">
+        <strong>响应式布局</strong>
+        <p>窄正文宽度适配手机竖屏与桌面阅读。字号、间距与行宽经反复测试，以降低长时间注视的疲劳感。</p>
+      </div>
+    </div>
+
+    <!-- 一个实用场景 + 提示 -->
+    <h2>一个典型使用场景</h2>
+    <p>你刚刚收到一位朋友的推荐消息，对方只留下一串字符：“去 <a href="https://indexportal-aiyouxi.com.cn">爱游戏</a> 看看”。你没有将它存入备忘录，而是直接打开浏览器输入了索引页地址。接下来你看到的是一屏干净的文本和唯一的可点击文字——这就是全部。</p>
+    <div class="note-block">
+      <p><strong>访问提醒</strong> · 建议使用现代浏览器（Chrome / Edge / Safari 最新版本），并保持网络通畅。索引页本身不储存任何重定向规则，所有跳转由目标站点接管。如果你在访问中遇到加载问题，请先确认目标站点是否正常运行，而非索引页本身。</p>
+    </div>
+
+    <!-- FAQ 摘要（轻量级，不占过多篇幅） -->
+    <div class="faq-summary">
+      <h3>几个简短回答</h3>
+      <details>
+        <summary>这个页面会经常更新吗？</summary>
+        <p>索引页的结构与指向极少变动。如有必要调整内容或链接，更新会提前在页脚标注日期。</p>
+      </details>
+      <details>
+        <summary>我可以将本页设为浏览器主页吗？</summary>
+        <p>可以。但请理解它的功能仅限于一个高速入口，主页若更偏重信息聚合，或许其他工具更合适。</p>
+      </details>
+      <details>
+        <summary>页面是否有移动端适配计划？</summary>
+        <p>目前已按移动优先思路设计。未来不会加入应用壳或独立 App，保持纯 Web 形态。</p>
+      </details>
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="closing-note">
+      <p>索引页的全部意义，就是让你以最短路径找到 <a href="https://indexportal-aiyouxi.com.cn">爱游戏</a>。之后的一切，就交给那个页面本身。希望这条路径始终清晰、安静、不打扰。</p>
+    </div>
+  </div>
+</body>
+</html>
