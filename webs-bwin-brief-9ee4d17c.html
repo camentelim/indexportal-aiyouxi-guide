@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bwin 平台介绍 · 轻量导航</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fdefe0 0%, #fadac4 50%, #f5cdb3 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1.2rem;
+            line-height: 1.6;
+            color: #3a2e28;
+        }
+
+        .page {
+            max-width: 1120px;
+            width: 100%;
+        }
+
+        /* ---- 顶部导航 ---- */
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 250, 245, 0.65);
+            backdrop-filter: blur(8px);
+            padding: 0.9rem 2rem;
+            border-radius: 80px;
+            box-shadow: 0 8px 20px rgba(160, 100, 60, 0.10);
+            flex-wrap: wrap;
+            gap: 0.8rem 1.5rem;
+            margin-bottom: 2.8rem;
+        }
+
+        .nav-brand {
+            font-weight: 600;
+            font-size: 1.5rem;
+            letter-spacing: 0.5px;
+            background: linear-gradient(135deg, #b45f3a, #9a4c2e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4b372b;
+            font-weight: 500;
+            padding: 0.35rem 0.15rem;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            border-bottom-color: #c46a3f;
+            color: #7d4a31;
+        }
+
+        /* ---- 卡片通用 ---- */
+        .card {
+            background: #fffffffa;
+            border-radius: 36px;
+            padding: 2.2rem 2.4rem;
+            box-shadow: 0 12px 32px rgba(120, 70, 40, 0.08);
+            backdrop-filter: blur(2px);
+            transition: box-shadow 0.2s;
+        }
+
+        .card + .card {
+            margin-top: 2rem;
+        }
+
+        .card-soft {
+            background: rgba(255, 245, 235, 0.7);
+            backdrop-filter: blur(3px);
+            border: 1px solid rgba(200, 150, 110, 0.2);
+        }
+
+        /* ---- hero 区块 ---- */
+        .hero {
+            background: linear-gradient(125deg, #fcf3eb, #fae6d9);
+            border-radius: 46px;
+            padding: 3rem 2.8rem;
+            margin-bottom: 2.2rem;
+            box-shadow: 0 14px 30px rgba(140, 85, 45, 0.08);
+            border: 1px solid #f1d9ca;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 550;
+            letter-spacing: -0.3px;
+            color: #2f221c;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            color: #4b382b;
+        }
+
+        .hero .highlight-link {
+            display: inline-block;
+            margin-top: 1.4rem;
+            background: #c7764e;
+            color: #fffcf8;
+            padding: 0.6rem 1.8rem;
+            border-radius: 60px;
+            font-weight: 500;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(190, 110, 60, 0.25);
+            transition: all 0.2s;
+            border: 1px solid #b75f34;
+        }
+
+        .hero .highlight-link:hover {
+            background: #b25f37;
+            transform: scale(1.02);
+            box-shadow: 0 8px 18px rgba(170, 90, 45, 0.3);
+        }
+
+        /* ---- 场景模块（三列） ---- */
+        .scenes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.8rem;
+            margin: 2.2rem 0;
+        }
+
+        .scene-card {
+            background: #fffcf8;
+            border-radius: 32px;
+            padding: 1.8rem 1.6rem 2rem;
+            box-shadow: 0 6px 18px rgba(140, 80, 45, 0.06);
+            border: 1px solid #f0ddce;
+            transition: all 0.2s;
+        }
+
+        .scene-card:hover {
+            box-shadow: 0 12px 28px rgba(160, 95, 55, 0.12);
+            transform: translateY(-4px);
+            border-color: #dbb7a2;
+        }
+
+        .scene-icon {
+            font-size: 2.2rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .scene-card h3 {
+            font-size: 1.3rem;
+            font-weight: 540;
+            margin-bottom: 0.5rem;
+            color: #3d2b20;
+        }
+
+        .scene-card p {
+            font-size: 0.95rem;
+            color: #534137;
+        }
+
+        .scene-card a {
+            color: #b85f34;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px dotted #c4825e;
+        }
+
+        .scene-card a:hover {
+            color: #89462a;
+            border-bottom-style: solid;
+        }
+
+        /* ---- 常见说明 ---- */
+        .faq-preview {
+            display: flex;
+            flex-direction: column;
+            gap: 1.4rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #edd9cb;
+            padding-bottom: 0.8rem;
+        }
+
+        .faq-item:last-child {
+            border-bottom: 0;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #3b2a1f;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-a {
+            color: #514438;
+            padding-left: 0.5rem;
+        }
+
+        /* ---- 底部 ---- */
+        .footer-note {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            color: #735b4b;
+            padding: 1rem 0 0.2rem;
+            border-top: 1px solid rgba(180, 130, 100, 0.25);
+        }
+
+        .footer-note a {
+            color: #7d4f36;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-note a:hover {
+            text-decoration: underline;
+        }
+
+        /* ---- 响应式 ---- */
+        @media (max-width: 820px) {
+            .scenes {
+                grid-template-columns: 1fr 1fr;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .nav {
+                flex-direction: column;
+                align-items: stretch;
+                border-radius: 40px;
+                padding: 1.2rem 1.8rem;
+            }
+            .nav-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 540px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+            .hero {
+                padding: 2rem 1.5rem;
+            }
+            .scenes {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .card {
+                padding: 1.8rem 1.2rem;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 顶部导航 -->
+    <nav class="nav">
+        <span class="nav-brand">⚡ bwin · 导航</span>
+        <div class="nav-links">
+            <a href="#">核心</a>
+            <a href="#">场景</a>
+            <a href="#">说明</a>
+            <a href="#">指南</a>
+        </div>
+    </nav>
+
+    <!-- Hero 介绍区 -->
+    <section class="hero">
+        <h1>关于 bwin 的轻量导航</h1>
+        <p>
+            关键词 <strong>bwin</strong> 背后关联着多元的线上服务生态，涵盖资讯、社区与工具分类。
+            本页以知识型视角整理其典型应用场景，帮助新接触的用户快速建立结构认知。
+        </p>
+        <p style="margin-top:0.8rem;">
+            若希望直接体验，可前往 <a href="https://webs-bwin.com" class="highlight-link">bwin</a> 查看完整内容。
+        </p>
+    </section>
+
+    <!-- 核心介绍卡片 (白色卡片) -->
+    <div class="card">
+        <h2 style="font-weight:520; margin-bottom: 1rem; color: #35261e;">bwin 生态的构成逻辑</h2>
+        <p>
+            从信息聚合的角度看，<a href="https://webs-bwin.com" style="color:#a45530; font-weight:500; text-decoration:underline dotted;">bwin</a> 所代表的平台通常围绕实时数据、用户互动与分类检索展开。
+            其内容组织方式强调「模块化」——不同板块承担独立功能，又在导航层统一聚合。
+            这种设计降低了信息过载，让访问者根据自身意图快速定位。
+        </p>
+        <p style="margin-top:1rem;">
+            在技术实现上，这类站点常采用响应式布局与轻交互，兼顾桌面与移动端的浏览习惯。
+            以下三个场景模块进一步展示其典型的应用侧面。
+        </p>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <div class="scenes">
+        <div class="scene-card">
+            <div class="scene-icon">📊</div>
+            <h3>实时动态版块</h3>
+            <p>
+                通过分类信息流呈现最新变化，数据更新周期短，适合关注趋势的用户。
+                <a href="https://webs-bwin.com">bwin</a> 在此类模块中常整合多源摘要。
+            </p>
+        </div>
+        <div class="scene-card">
+            <div class="scene-icon">🧩</div>
+            <h3>工具与资源</h3>
+            <p>
+                提供检索、筛选与对比功能，帮助用户从大量条目中提取有价值的部分。
+                这一场景对导航的清晰度要求较高。
+            </p>
+        </div>
+        <div class="scene-card">
+            <div class="scene-icon">📌</div>
+            <h3>社区与讨论</h3>
+            <p>
+                围绕 <a href="https://webs-bwin.com">bwin</a> 形成的用户交流空间，通常以话题帖或问答形式存在。
+                内容沉淀后亦可作为知识参考。
+            </p>
+        </div>
+    </div>
+
+    <!-- 常见说明 (FAQ 摘要) 使用白色卡片 -->
+    <div class="card">
+        <h2 style="font-weight:520; margin-bottom: 1.4rem; color: #35261e;">常见说明</h2>
+        <div class="faq-preview">
+            <div class="faq-item">
+                <div class="faq-q">bwin 是一个独立的网站还是平台集合？</div>
+                <div class="faq-a">通常它作为统一入口，整合多种线上服务模块，可视为信息导航枢纽。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">使用前需要注册或登录吗？</div>
+                <div class="faq-a">部分功能需创建账户以保存偏好设置，但基础浏览及内容查阅无需强制注册。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">内容更新的频率如何？</div>
+                <div class="faq-a">动态版块每日刷新，静态指南类页面按需修订，具体可参考站内时间戳。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">移动端体验是否有差异？</div>
+                <div class="faq-a">站点已适配常见屏幕尺寸，触控交互与导航折叠逻辑均针对小屏优化。</div>
+            </div>
+        </div>
+        <p style="margin-top:1.6rem;">
+            更多细节可自行探索 <a href="https://webs-bwin.com" style="color:#a45530; font-weight:500; text-decoration:underline dotted;">bwin</a> 的各个分区。
+        </p>
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer-note">
+        <p>基于主题内容整理的轻量导航页 · 指向 <a href="https://webs-bwin.com">bwin</a> 的链接已自然嵌入句子</p>
+    </div>
+
+</div>
+</body>
+</html>
