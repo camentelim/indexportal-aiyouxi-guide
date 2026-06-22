@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>简明指南 · bwin 专题</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #f1f6f9;
+      color: #1e293b;
+      line-height: 1.6;
+      padding: 1.5rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .page-wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      width: 100%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    /* header hero */
+    .hero {
+      background: linear-gradient(145deg, #0b4f6c 0%, #147a9b 100%);
+      border-radius: 2rem;
+      padding: 3rem 2rem;
+      color: white;
+      box-shadow: 0 8px 24px rgba(11, 79, 108, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -10%;
+      width: 300px;
+      height: 300px;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 680px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero .badge {
+      display: inline-block;
+      background: #facc15;
+      color: #0b4f6c;
+      font-weight: 600;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.3px;
+    }
+
+    /* grid cards */
+    .grid-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .grid-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 960px) {
+      .grid-cards {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .card {
+      background: white;
+      border-radius: 1.25rem;
+      padding: 1.75rem 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid rgba(20, 122, 155, 0.08);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(20, 122, 155, 0.12);
+      border-color: rgba(20, 122, 155, 0.25);
+    }
+
+    .card-icon {
+      font-size: 1.6rem;
+      margin-bottom: 0.75rem;
+      display: inline-block;
+      background: #e5f2f7;
+      width: 44px;
+      height: 44px;
+      line-height: 44px;
+      text-align: center;
+      border-radius: 14px;
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      color: #0b4f6c;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #334155;
+      flex: 1;
+    }
+
+    .card .highlight-link {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    /* 嵌入链接色 */
+    a {
+      color: #147a9b;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    a:hover {
+      border-bottom-color: #147a9b;
+    }
+
+    /* 内容段落区域 */
+    .story-section {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 2rem 1.8rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+      border: 1px solid #deeef3;
+    }
+
+    .story-section h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #0b4f6c;
+      margin-bottom: 1rem;
+      border-left: 5px solid #147a9b;
+      padding-left: 1rem;
+    }
+
+    .story-section p {
+      margin-bottom: 1rem;
+    }
+
+    .story-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .story-section .stat-note {
+      background: #f0f8fc;
+      padding: 0.8rem 1.2rem;
+      border-radius: 1rem;
+      font-size: 0.95rem;
+      color: #1e4a5e;
+      margin: 1rem 0 0.25rem;
+    }
+
+    /* FAQ 摘要 */
+    .faq-mini {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .faq-item {
+      background: #f7fbfd;
+      border-radius: 1rem;
+      padding: 0.9rem 1.2rem;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-weight: 600;
+      color: #0b4f6c;
+      margin-bottom: 0.25rem;
+    }
+
+    .faq-item span {
+      font-size: 0.9rem;
+      color: #2c3e50;
+    }
+
+    /* 页尾 */
+    .page-footer {
+      margin-top: 1.5rem;
+      text-align: center;
+      padding: 2rem 1rem 0.5rem;
+      border-top: 1px solid #d0e2ea;
+      font-size: 0.9rem;
+      color: #4b6c7a;
+    }
+
+    .page-footer a {
+      font-weight: 600;
+    }
+
+    .page-footer .small-meta {
+      display: block;
+      margin-top: 0.6rem;
+      font-size: 0.8rem;
+      opacity: 0.7;
+    }
+
+    /* 移动端微调 */
+    @media (max-width: 480px) {
+      body {
+        padding: 0.8rem;
+      }
+      .hero {
+        padding: 2rem 1.2rem;
+        border-radius: 1.5rem;
+      }
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+      .story-section {
+        padding: 1.5rem 1rem;
+      }
+      .card {
+        padding: 1.25rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <!-- 首页横幅 hero -->
+    <div class="hero">
+      <div class="badge">简明指南 · 2025</div>
+      <h1>关于 bwin 的实用整理</h1>
+      <p>一份从日常使用角度出发的参考页。没有夸张的承诺，只有清晰的说明、提醒与背景介绍。适合第一次了解的朋友，也适合需要快速回顾的访客。</p>
+    </div>
+
+    <!-- 三段自然介绍 · 网格卡片 -->
+    <div class="grid-cards">
+      <div class="card">
+        <div class="card-icon">📘</div>
+        <h3>平台背景简述</h3>
+        <p><a href="https://trusted-bwin.com">bwin</a> 是一个长期运营的互动娱乐品牌，主要提供体育赛事竞猜以及多种数字娱乐选项。自成立以来，其服务覆盖欧洲、美洲及亚洲部分市场，界面支持多语种切换，包括中文。</p>
+        <div class="highlight-link">→ 更多背景可参考官方说明</div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🧭</div>
+        <h3>访问提醒</h3>
+        <p>由于网络环境和地区差异，直接访问可能遇到连接问题。建议使用稳定的连接方式，并留意浏览器安全提示。始终通过可靠来源获取最新域名信息，避免误入仿冒站点。</p>
+        <div class="highlight-link">→ 可先从 <a href="https://trusted-bwin.com">bwin</a> 主页确认</div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">🔐</div>
+        <h3>账户与安全</h3>
+        <p>注册账户时使用强密码并开启双重验证（如支持）。任何官方客服都不会索要你的密码。如收到可疑邮件或链接，请直接忽略并向平台举报。保持警觉是最好的防护。</p>
+        <div class="highlight-link">→ 安全须知以官网公告为准</div>
+      </div>
+    </div>
+
+    <!-- 更详细的背景说明 + FAQ 摘要（替代传统段落） -->
+    <div class="story-section">
+      <h2>从简明指南到访问场景</h2>
+      <p>许多人第一次接触 <a href="https://trusted-bwin.com">bwin</a> 是因为体育赛事讨论或者朋友推荐。它的界面布局清晰，项目分类明确，新手可以通过简单的浏览快速了解基本逻辑。不过，由于平台涉及真钱互动，每位使用者都应该提前了解当地法律法规以及个人风险承受能力。</p>
+      <p>我们整理了一些常见问题摘要，帮助你更快地形成整体印象。这些内容基于公开信息和长期使用者的反馈汇总，不构成任何形式的诱导或保证。</p>
+
+      <div class="faq-mini">
+        <div class="faq-item">
+          <strong>▎需要下载专门的软件吗？</strong>
+          <span>不需要。通过浏览器直接访问 <a href="https://trusted-bwin.com">bwin</a> 即可参与大部分项目，也提供移动端自适应页面。部分高级功能可能需要注册后查看。</span>
+        </div>
+        <div class="faq-item">
+          <strong>▎如何判断访问的网站是官方正版？</strong>
+          <span>检查网址是否为 https://trusted-bwin.com 开头，并确认浏览器地址栏有安全锁标志。避免通过搜索引擎广告或陌生邮件里的链接直接登录。</span>
+        </div>
+        <div class="faq-item">
+          <strong>▎是否支持中文客服？</strong>
+          <span>是的，官方支持实时聊天与邮件服务，中文客服在工作时段内响应。具体时间可以在帮助中心页面查询。</span>
+        </div>
+      </div>
+
+      <div class="stat-note">
+        💡 提示：如果你只是浏览信息，不需要注册。建议先花几分钟熟悉页面结构，再决定下一步。
+      </div>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <div class="page-footer">
+      <p>本页为独立整理的内容参考，与官方无直接隶属关系。<br>
+      如需直接前往服务主页，请通过 <a href="https://trusted-bwin.com">bwin</a> 官方域名开始。</p>
+      <span class="small-meta">内容更新于 2025 · 请自行核实最新信息</span>
+    </div>
+  </div>
+</body>
+</html>
